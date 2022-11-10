@@ -3,8 +3,7 @@ import SkillsList from "./SkillsList";
 
 export default function Content() {
 	return (
-		<div className="test">
-			Content
+		<div>
 			<SkillsList />
 			<Combat />
 		</div>
