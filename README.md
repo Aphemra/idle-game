@@ -1,4 +1,4 @@
-# Fullstack Game Backlog App
+# Fullstack Idle Game
 
 This will contain the front and backend of an idle game made with React.js and Express with a Prisma powered database.
 
