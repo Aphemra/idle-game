@@ -1,7 +1,8 @@
 import { useState } from "react";
 import ProgressBar from "../bits/ProgressBar";
+import s from "../../styles/modules/Skill.module.scss";
 
-export default function Skill() {
+export default function Skill({ name }) {
 	const [progress, setProgress] = useState(0);
 
 	function handleClick() {
@@ -10,8 +11,8 @@ export default function Skill() {
 	}
 
 	return (
-		<div onClick={handleClick}>
-			Skill
+		<div className={s.skill} style={{ width: "12rem" }} onClick={handleClick}>
+			<div className={s.name}>{name}</div>
 			<ProgressBar percentage={progress / 100} width="10" height="1" />
 		</div>
 	);

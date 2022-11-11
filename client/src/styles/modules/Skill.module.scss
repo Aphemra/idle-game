@@ -1,0 +1,14 @@
+.skill {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid black;
+	border-radius: 0.25rem;
+	padding: 0.5rem 0.75rem;
+	margin-bottom: 0.25rem;
+}
+
+.name {
+	text-transform: capitalize;
+}
