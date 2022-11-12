@@ -1,19 +1,20 @@
-import { useState } from "react";
 import ProgressBar from "../bits/ProgressBar";
 import s from "../../styles/modules/Skill.module.scss";
+import { levels } from "../state/globals";
 
-export default function Skill({ name }) {
-	const [progress, setProgress] = useState(0);
-
-	function handleClick() {
-		// Replace this entire function later with exp and level handled
-		setProgress((progress) => (progress + 1 >= 100 ? 0 : progress + 1));
-	}
+export default function Skill({ skill }) {
+	const currentLevelExp = levels.filter((level) => level.level === skill.currentLevel)[0].exp;
+	const nextLevelExp = levels.filter((level) => level.level === skill.currentLevel + 1)[0].exp;
+	const expToNextLevel = nextLevelExp - currentLevelExp;
+	// do floor instead of round
+	const progress = Math.round(((skill.currentExp - currentLevelExp) / expToNextLevel) * 1000) / 1000;
 
 	return (
-		<div className={s.skill} style={{ width: "12rem" }} onClick={handleClick}>
-			<div className={s.name}>{name}</div>
-			<ProgressBar percentage={progress / 100} width="10" height="1" />
+		<div className={s.skill} style={{ width: "12rem" }}>
+			<div className={s.name}>{skill.name}</div>
+			<div className={s.name}>Level: {skill.currentLevel}</div>
+			<div className={s.name}>EXP: {skill.currentExp}</div>
+			<ProgressBar percentage={progress} width="10" height="1" />
 		</div>
 	);
 }
