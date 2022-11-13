@@ -6,13 +6,27 @@
 	margin-top: 1rem;
 
 	.training {
-		display: flex;
-		flex-direction: row;
-		gap: 0.25rem;
+		text-transform: capitalize;
 	}
 
-	button,
-	input[type="number"] {
+	.stopTraining {
+		background-color: rgb(112, 0, 0);
+		color: white;
+		border-radius: 0.25rem;
+
+		&:hover {
+			background-color: rgb(70, 0, 0);
+		}
+
+		&:active {
+			background-color: white;
+			color: rgb(112, 0, 0);
+		}
+	}
+
+	button {
 		width: 7.5rem;
+		text-transform: capitalize;
+		cursor: pointer;
 	}
 }
