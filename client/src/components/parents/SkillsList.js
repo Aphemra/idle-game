@@ -1,7 +1,7 @@
 import Skill from "../containers/Skill";
 import s from "../../styles/modules/SkillsList.module.scss";
 import { useAtom } from "jotai";
-import { skills as sk } from "../state/globals";
+import { skillsAtom as sk } from "../state/globals";
 
 export default function SkillsList() {
 	const [skills, setSkills] = useAtom(sk);

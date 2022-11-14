@@ -1,3 +1,12 @@
+import { levelsAtom } from "../../components/state/globals";
+
+export class Level {
+	constructor(level, exp) {
+		this.level = level;
+		this.exp = exp;
+	}
+}
+
 function sigma(start, end, expression) {
 	const length = end - start;
 	const mapFunction = (element, index) => (expression ? expression(index + start) : index + start);
@@ -18,11 +27,12 @@ export function setLevels(levelCap) {
 	const levels = [];
 
 	for (let i = 1; i <= levelCap; i++) {
-		levels.push({
-			level: i,
-			exp: getExperienceByLevel(i),
-		});
+		levels.push(new Level(i, getExperienceByLevel(i)));
 	}
 
 	return levels;
+}
+
+export function getLevelFromExperience(experience) {
+	return levelsAtom.filter((level) => experience >= level.exp).length;
 }

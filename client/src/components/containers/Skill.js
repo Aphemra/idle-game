@@ -1,10 +1,10 @@
 import ProgressBar from "../bits/ProgressBar";
 import s from "../../styles/modules/Skill.module.scss";
-import { levels } from "../state/globals";
+import { levelsAtom } from "../state/globals";
 
 export default function Skill({ skill }) {
-	const currentLevelExp = levels.filter((level) => level.level === skill.currentLevel)[0].exp;
-	const nextLevelExp = levels.filter((level) => level.level === skill.currentLevel + 1)[0].exp;
+	const currentLevelExp = levelsAtom.filter((level) => level.level === skill.currentLevel)[0].exp;
+	const nextLevelExp = levelsAtom.filter((level) => level.level === skill.currentLevel + 1)[0].exp;
 	const expToNextLevel = nextLevelExp - currentLevelExp;
 	// do floor instead of round
 	const progress = Math.round(((skill.currentExp - currentLevelExp) / expToNextLevel) * 1000) / 1000;

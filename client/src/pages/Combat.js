@@ -1,7 +1,9 @@
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
-import { skills as sk, getLevelFromExperience as getLevel, tickSpeed as ts, money as m } from "../components/state/globals";
+import { skillsAtom as sk, tickSpeedAtom as ts, moneyAtom as m } from "../components/state/globals";
+import { getLevelFromExperience as getLevel } from "../utils/classes/Level";
 import s from "../styles/modules/Combat.module.scss";
+import { Skill } from "../utils/classes/Skill";
 
 export default function Combat() {
 	const [skills, setSkills] = useAtom(sk);
@@ -32,7 +34,8 @@ export default function Combat() {
 			const newState = previousState.map((skill) => {
 				if (skill.name === skillToTrain) {
 					const newExp = skill.currentExp + expGained;
-					return { ...skill, currentExp: newExp, currentLevel: getLevel(newExp) };
+					return new Skill(skill.name, newExp, getLevel(newExp), skill.locked);
+					// return { ...skill, currentExp: newExp, currentLevel: getLevel(newExp) };
 				}
 				return skill;
 			});

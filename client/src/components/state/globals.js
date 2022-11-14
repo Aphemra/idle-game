@@ -1,18 +1,20 @@
 import { atom } from "jotai";
-import { setLevels } from "../../utils/levelUtils";
+import { setLevels } from "../../utils/classes/Level";
+import { buildSkills } from "../../utils/classes/Skill";
 
-export const levels = setLevels(100);
-export const tickSpeed = atom(1000);
+// Default starting values
+const skillList = ["attack", "strength", "health", "defense"];
+const startingInventory = [];
+const maxLevels = 100;
+const tickSpeed = 1000;
+const money = 0;
 
-const inventory = atom([]);
-export const skills = atom([
-	{ name: "attack", currentExp: 0, currentLevel: 1 },
-	{ name: "strength", currentExp: 0, currentLevel: 1 },
-	{ name: "health", currentExp: 0, currentLevel: 1 },
-	{ name: "defense", currentExp: 0, currentLevel: 1 },
-]);
-export const money = atom(0);
+// Building atoms from starting values (or saved values)
+export const skillsAtom = atom(buildSkills(skillList));
+export const inventoryAtom = atom(startingInventory);
+export const tickSpeedAtom = atom(tickSpeed);
+export const moneyAtom = atom(money);
 
-export function getLevelFromExperience(experience) {
-	return levels.filter((level) => experience >= level.exp).length;
-}
+// Other required exports
+export const levelsAtom = setLevels(maxLevels);
+export const saveInterval = 5000;
