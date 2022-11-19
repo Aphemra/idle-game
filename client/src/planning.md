@@ -18,4 +18,11 @@ This type of progression will lead to unlocking each skill. Each skill (aside fr
 
 ## List of Potential Components
 
+-   Skill Component
+-   Progress Bar Component
+-   Skills Page (Perhaps also a omnipresent panel)
+-   Inventory Page
+-   Tooltip Component
+-   Training Page
+-   Monster Component
 -   TODO
