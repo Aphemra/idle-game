@@ -18,6 +18,8 @@ This type of progression will lead to unlocking each skill. Each skill (aside fr
 
 ## List of Potential Components
 
+These are a conglomeration of whole pages and smaller components.
+
 -   Skill Component
 -   Progress Bar Component
 -   Skills Page (Perhaps also a omnipresent panel)
