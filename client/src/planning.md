@@ -28,3 +28,7 @@ These are a conglomeration of whole pages and smaller components.
 -   Training Page
 -   Monster Component
 -   TODO
+
+## General Code Design Ideas
+
+-   Global state that has a list of functions that are placed in a queue and called every x tickSpeed milliseconds. This avoids race conditions while not having to rely on web workers.
