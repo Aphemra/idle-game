@@ -34,3 +34,4 @@ These are a conglomeration of whole pages and smaller components.
 -   Global state that has a list of functions that are placed in a queue and called every x tickSpeed milliseconds. This avoids race conditions while not having to rely on web workers.
 -   Will have a helper function (like update or addToFlow or something) that takes in a function that needs to be added to the global call queue. This helper function is called once on mount/useEffect with no dependencies.
 -   Another helper function will search queue for a given function name/id (provided when previous helper function to add was called) and will remove it from the event queue.
+-   Each call to this 'update' function will take in a function and an id (likely string based). The function and id will be added to a object context and then have that object added to a queue-based array/list.
