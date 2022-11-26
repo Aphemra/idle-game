@@ -1,4 +1,4 @@
-import { levelsAtom } from "../../components/state/globals";
+import { levelsAtom } from "../../components/statics/globals";
 
 export class Level {
 	constructor(level, exp) {
